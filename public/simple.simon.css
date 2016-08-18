@@ -1,0 +1,49 @@
+#container{
+	background-color: purple;
+	position: relative;
+	height: 700px;
+	width: 700px;
+	margin: auto;
+	border:10px solid black;
+}
+.button{
+	height: 200px;
+	width: 200px;
+	border: 5px solid black;
+}
+#greenButton{
+	position: relative;
+	margin-left: 20%;
+	top: 20%;
+	background-color: green;
+}
+#blueButton{
+	position: relative;
+	margin-left: 2%;
+	top: 20%;
+	background-color: blue;
+}
+#yellowButton{
+	position: relative;
+	margin-left: 20%;
+	top: 25%;
+	background-color: yellow;
+
+}
+#redButton{
+	position: relative;
+	margin-left: 2%;
+	top: 25%;
+	background-color: red;
+
+}
+#start{
+	position:relative;
+	background-color: black;
+	color: white;
+	bottom: -30%;
+	margin-left: 45%;
+	height:50px;
+	width:80px;
+
+}
