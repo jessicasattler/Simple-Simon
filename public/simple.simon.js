@@ -32,8 +32,42 @@
 	for(i = 0;i < buttonsArray.length; i+=1){
 
 	$("#" + buttonsArray[i]+"Button").click(blink);
+
 	
 	}
 //for loop feeds the button to the blink function without having to list
 //each button individually	
+	// var i;
+	// var randomButtonsArray = [0,1];
+	// for (i = 0; i < randomButtonsArray.length ;i+=1){
+	// var randomNumber = parseInt((Math.random()*4)+0);
+	// console.log(randomNumber);
+	// 	randomButtonsArray = randomButtonsArray + randomButtonsArray.push(randomNumber);
+	// }
+	// console.log(randomButtonsArray);
+
+
+// 	var pressButtonsInSequence = function(event){
+// 		if(this == secondButtonsArray[j]){
+// 			j+=1;
+// 			if(this == secondButtonsArray[secondButtonsArray.length-1]){
+// 				console.log("you completed the sequence correctly!")
+// 			}
+// 		}else{
+// 			j = 0;
+// 		}
+// 	}
+
+// var secondButtonsArray = ["yellow","blue","red","green"]
+// 	var j = 0;
+// 	//increase j by one whenever the correct button in the sequence is pressed
+
+	
+// 	for(j = 0; j < secondButtonsArray.length; j+=1){
+// 		$("#"+secondButtonsArray[j]+"Button").click(pressButtonsInSequence)
+// 	}
+//Tried to simulate 
+
+
+	
 })();
