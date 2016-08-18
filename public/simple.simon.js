@@ -25,23 +25,15 @@
 
 //after a 500 millisecond delay, all buttons go back to being opaque
 //fix this so that only the button that is lit up is set to opaque
-	// var 0 = $("#greenButton");
-	// var 1 = $("#blueButton");
-	// var 2 = $("#yellowButton");
-	// var 3 = $("redButton");
-	// var buttonsArray[0,1,2,3];
-	// var i;
-	// for(i = buttonsArray[0];i < buttonsArray.length; i+=1){
-
-	// i.click(blink);
 	
-	// }
+	var buttonsArray = ["green","blue","yellow","red"];
+	console.log(buttonsArray[0]);
+	var i;
+	for(i = 0;i < buttonsArray.length; i+=1){
 
-	$("#greenButton").click(blink);
-	$("#blueButton").click(blink);
-	$("#yellowButton").click(blink);
-	$("#redButton").click(blink);
-//turn this into a for loop, my attempt is directily above my previous code
+	$("#" + buttonsArray[i]+"Button").click(blink);
 	
-
+	}
+//for loop feeds the button to the blink function without having to list
+//each button individually	
 })();
