@@ -63,7 +63,14 @@
 
  	var triggerClick = function(){
  		randomButtonsArray.forEach(function(element,index,array){
- 			element.trigger('click');
+ 			element.css("opacity", "1.00");
+//when a button is clicked, the opacity is set to 1 (button lights up)
+//"this" is the button that is clicked	
+		var opaqueLightOpaque = setTimeout(function() {
+		
+			$(".button").css("opacity", "0.50");
+				
+		}, delay)
  		});
 
  	}
