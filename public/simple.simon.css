@@ -10,6 +10,7 @@
 .button{
 	height: 200px;
 	width: 200px;
+	opacity: 0.5;
 	border: 5px solid black;
 }
 #greenButton{
@@ -38,7 +39,7 @@
 	background-color: red;
 
 }
-#start{
+/*#start{
 	position:relative;
 	background-color: black;
 	color: white;
@@ -47,4 +48,4 @@
 	height:50px;
 	width:80px;
 
-}
+}*/
