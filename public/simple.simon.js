@@ -29,8 +29,7 @@
 	
 	var buttonsArray = ["green","blue","yellow","red"];
 	
-	var i;
-	for(i = 0;i < buttonsArray.length; i+=1){
+	for(var i = 0;i < buttonsArray.length; i+=1){
 
 	$("#" + buttonsArray[i]+"Button").click(blink);
 
@@ -62,7 +61,7 @@
  			randomButtonsArray.push($("#redButton"));
 
 	 	}
-	 	console.log(randomButtonsArray)
+	 	
  	}
 //the random number that is called will dictate which button will be pushed to the 
 //array that will decide on the next button that will be called into the randomButtonsArray
@@ -70,7 +69,6 @@
  		var triggerClick =function (){
  			AddRandomButton();
  		randomButtonsArray.forEach(function(element,index,array){
- 			console.log(randomButtonsArray);
  			element.css("opacity", "1.00");
 		var opaqueLightOpaque = setTimeout(function() {
 		
@@ -78,7 +76,7 @@
 				
 		}, delay)
  		});
-
+ 		console.log(randomButtonsArray);
  	}
 //when a button is clicked, the opacity is set to 1 (button lights up)
 //"this" is the button that is clicked	
@@ -86,20 +84,29 @@
 //but doesn't work yet
  	triggerClick();
 
-//pseudo code
- 	// .(document).keydown(function(event){
- 	// 	if (button person clicks  == random number in button array){
- 	// 		add number to random button array;
- 	// 		call triggerClick()the numbers in random array show up
 
-		// 	i += 1;
- 	// 	}else{
+	var userInputArray = [];
+ 	$(".button").click(function(event){
+ 		console.log("test")
+ 		console.log($(this).attr('id'));
+ 		console.log(randomButtonsArray[0].attr("id"));
 
- 	// 		i = 0;
- 	// 		have the same button light up
- 	// 	}
- 	// });
- 	// console.log(randomButtonsArray.length);
+ 		if ($(this).attr('id')  == randomButtonsArray[0].attr("id")){
+ 			console.log($(this).attr('id'));
+ 			userInputArray.push($(this).attr('id'));
+ 			AddRandomNumber();
+ 			// add number to random button array;
+ 			triggerClick();
+ 			//call triggerClick()the numbers in random array show up
+
+			i += 1;
+ 		}else{
+
+ 			i = 0;
+ 			//have the first button in the index of randomButtonsArray light up
+ 		}
+ 	});
+ 	console.log(randomButtonsArray.length)
 
 
  
