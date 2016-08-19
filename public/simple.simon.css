@@ -5,6 +5,7 @@
 	width: 700px;
 	margin: auto;
 	border:10px solid black;
+	border-radius:50%;
 }
 .button{
 	height: 200px;
