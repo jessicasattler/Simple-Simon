@@ -1,10 +1,10 @@
 (function(){
 'use strict';
 
-
 	var listenerStartButton =function(event){
-		 triggerClick();
+		$(".button").css("opacity","0.5");
 		$("#start").fadeOut();
+		triggerClick();
 	};
 
 	$("#start").click(listenerStartButton);
@@ -20,6 +20,7 @@
 		var opaqueLightOpaque = setTimeout(function() {
 		
 			$(".button").css("opacity", "0.50");
+			
 				
 		}, delay)
 	}
@@ -32,6 +33,7 @@
 	for(var i = 0;i < buttonsArray.length; i+=1){
 
 	$("#" + buttonsArray[i]+"Button").click(blink);
+
 
 	}
 //buttonsArray feed the button color into a for loop that links up user clicks to the
@@ -65,8 +67,10 @@
 //array that will decide on the next button that will be called into the randomButtonsArray
 //which will decide what the correct sequence of buttons to click is
  	var triggerClick =function (){
- 		$("#score").html("Current Score: " + randomButtonsArray.length*10);
+ 		$("#score").html("Current Score: " + randomButtonsArray.length*10 + " Points");
  		//scores usually increase by ten and not one in games
+ 		// $(".button").off("click", blink);
+ 		//may turn off blink function when triggerClick is being called
 		AddRandomButton();
 		console.log(randomButtonsArray);
 
@@ -79,7 +83,7 @@
  				clearInterval(intervalLightButton);
  				console.log("all done");
  			}else{
- 				
+ 				$('#audio1').html('<audio id="DingCOne" autoplay preload="auto"><source src=' + randomButtonsArray[count].attr("data-audio") +' type="audio/mp3"></audio>');
  				randomButtonsArray[count].css("opacity", "1.00");
  				count += 1;
 				var opaqueLightOpaque = setTimeout(function() {
@@ -89,17 +93,21 @@
 				}, delay)
  			}
  		}, interval);
+
+ 		
  	}
 //when a button click is triggered, AddRandomButton is called
+//buttons will make the ding sound corresponding to their data-audio attribute 
 //the opacity is set to 1 (button lights up)
-//"this" is the button that is clicked	
 //the next part of the function is supposed to set all the buttons back to being opaque
 	var i = 0;
- 	$(".button").click(function(event){
+	var listenerCheckButton ;
+ 	$(".button").click(function listenerCheckButton(event){
  		console.log("test")
  		console.log($(this).attr('id'));
  		console.log(randomButtonsArray[0].attr("id"));
  		if ($(this).attr('id')  == randomButtonsArray[i].attr("id")){
+ 			$('#audio1').html('<audio id="DingCOne" autoplay preload="auto"><source src=' + $(this).attr("data-audio") +' type="audio/mp3"></audio>');
  			if(i == randomButtonsArray.length-1){
  			triggerClick();
 			i = 0;
@@ -107,6 +115,7 @@
  				i+=1;
  			}
  			console.log($(this).attr('id'));
+ 		//different audio sounds were added depending on which button should be clicked
  		//when any button is clicked, a click event will trigger
  		//if the id attribute of clicked button is equal to the id attribute of
  		//the element of randomButtonsArray with index of "i" 
@@ -116,9 +125,11 @@
 
 
  		}else{
+ 		$('#audio1').html('<audio id="Buzzer" autoplay  preload="auto"><source src="/js/buzzer.mp3" type="audio/mp3"></audio>');
  			randomButtonsArray=[];
  			triggerClick();
  			i = 0;
+ 			//buzzer sound was added so that it goes off when user answers incorrectly
  			//if the button clicked is not the same as the button in the AddRandomButton array
  			//then add a random button to array and make that button light up
  			//have the first button in the index of randomButtonsArray light up

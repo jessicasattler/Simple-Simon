@@ -1,17 +1,24 @@
+body{
+	font-family: 'Russo One', sans-serif;
+	font-weight: bold;
+	background-image: url("/img/pic2.jpeg");
+	background-repeat: no-repeat;
+}
 #container{
-	background-color: purple;
+	background-image: url("/img/purple.png");
 	position: relative;
 	height: 700px;
 	width: 700px;
 	margin: auto;
-	border:10px solid black;
+	border:10px solid pink;
 	border-radius:50%;
 }
 .button{
 	height: 200px;
 	width: 200px;
-	opacity: 0.5;
-	border: 5px solid black;
+	opacity: 1.00;
+	border: 5px solid pink;
+	box-shadow: 15px 10px 10px #888888;
 }
 #greenButton{
 	position: relative;
@@ -43,9 +50,12 @@
 	position:relative;
 	background-color: black;
 	color: white;
-	bottom: -30%;
-	margin-left: 45%;
-	height:50px;
-	width:80px;
+	bottom: 10%;
+	margin-left: 40%;
+	height:100px;
+	width:125px;
+	font-family: 'Russo One', sans-serif;
+	border-radius:50%;
+	font-size:20px;
 
 }
