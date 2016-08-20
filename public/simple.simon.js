@@ -2,18 +2,19 @@
 'use strict';
 
 
-	// var listenerStartButton =function(event){
-	// 	 // $(".button").css("opacity","0.50");
-	// 	$("#start").fadeOut();
-	// };
+	var listenerStartButton =function(event){
+		 // $(".button").css("opacity","0.50");
+		 triggerClick();
+		$("#start").fadeOut();
+	};
 
-	// $("#start").click(listenerStartButton);
+	$("#start").click(listenerStartButton);
 //gives dullness to boxes at the click of "Start" button
 //start button fades out after it's clicked
-
+	
 	var delay = 500;
 	var blink = function(event) {
-		console.log("clicked");
+		// console.log("clicked");
 		$(this).css("opacity", "1.00");
 //when a button is clicked, the opacity is set to 1 (button lights up)
 //"this" is the button that is clicked	
@@ -37,7 +38,7 @@
 	}
 //buttonsArray feed the button color into a for loop that links up clicks to the
 //blink function, which makes the button light up for 500 milliseconds
-	var i;
+	
 	// var randomNumberForStartOfArray = parseInt((Math.random()*4)+0)
  	var randomButtonsArray = [];
 
@@ -67,41 +68,64 @@
 //array that will decide on the next button that will be called into the randomButtonsArray
 //which will decide what the correct sequence of buttons to click is
  		var triggerClick =function (){
- 			AddRandomButton();
- 		randomButtonsArray.forEach(function(element,index,array){
- 			element.css("opacity", "1.00");
-		var opaqueLightOpaque = setTimeout(function() {
+ 		$("#score").html("Current Score: " + randomButtonsArray.length*10);
+		AddRandomButton();
+		console.log(randomButtonsArray);
+ 	// 	randomButtonsArray.forEach(function(element,index,array){
+ 	// 		element.css("opacity", "1.00");
+		// var opaqueLightOpaque = setTimeout(function() {
 		
-			$(".button").css("opacity", "0.50");
+		// 	$(".button").css("opacity", "0.50");
 				
-		}, delay)
- 		});
- 		console.log(randomButtonsArray);
+		// }, delay)
+ 	// 	});
+ 	// 	console.log(randomButtonsArray);
+ 		var count = 0;
+ 		var max = randomButtonsArray.length;
+ 		var interval = 1000;
+
+ 		var intervalLightButton = setInterval(function(){
+ 			if(count >= max){
+ 				clearInterval(intervalLightButton);
+ 				console.log("all done");
+ 			}else{
+ 				
+ 				randomButtonsArray[count].css("opacity", "1.00");
+ 				count += 1;
+				var opaqueLightOpaque = setTimeout(function() {
+		
+				$(".button").css("opacity", "0.50");
+				
+				}, delay)
+ 			}
+ 		}, interval);
  	}
 //when a button is clicked, the opacity is set to 1 (button lights up)
 //"this" is the button that is clicked	
 //the next part of the function is supposed to set all the buttons back to being opaque,
 //but doesn't work yet
- 	triggerClick();
+ 	// triggerClick();
 
 
-	var userInputArray = [];
+ 	var i = 0;
  	$(".button").click(function(event){
  		console.log("test")
  		console.log($(this).attr('id'));
  		console.log(randomButtonsArray[0].attr("id"));
-
- 		if ($(this).attr('id')  == randomButtonsArray[0].attr("id")){
- 			console.log($(this).attr('id'));
- 			userInputArray.push($(this).attr('id'));
- 			AddRandomNumber();
- 			// add number to random button array;
+ 		if ($(this).attr('id')  == randomButtonsArray[i].attr("id")){
+ 			if(i == randomButtonsArray.length-1){
  			triggerClick();
- 			//call triggerClick()the numbers in random array show up
+			i = 0;
+ 			}else{
+ 				i+=1;
+ 			}
+ 			console.log($(this).attr('id'));
+ 			
 
-			i += 1;
+
  		}else{
-
+ 			randomButtonsArray=[];
+ 			triggerClick();
  			i = 0;
  			//have the first button in the index of randomButtonsArray light up
  		}
