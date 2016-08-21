@@ -68,6 +68,9 @@
 //which will decide what the correct sequence of buttons to click is
  	var triggerClick =function (){
  		$("#score").html("Current Score: " + randomButtonsArray.length*10 + " Points");
+ 		if(randomButtonsArray.length > 10){
+ 			$("#score").append("<br>"+"Congratulations! You've reached a high score!");
+ 		}
  		//scores usually increase by ten and not one in games
  		// $(".button").off("click", blink);
  		//may turn off blink function when triggerClick is being called
