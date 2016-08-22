@@ -9,13 +9,14 @@ body{
 }
 #container{
 	background-image: url("/img/purple.png");
-	position: relative;
+	position: absolute;
 	height: 700px;
 	width: 700px;
 	margin: auto;
 	border:10px solid pink;
 	border-radius: 50%;
-	top: 103px;
+	top: 163px;
+	left:600px;
 }
 .button{
 	height: 40%;
