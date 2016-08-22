@@ -1,8 +1,8 @@
 (function(){
 'use strict';
 
-//gives dullness to boxes at the click of "Start" button
-//start button fades out after it's clicked
+	//gives dullness to boxes at the click of "Start" button
+	//start button fades out after it's clicked
 	var listenerStartButton =function(event){
 		$(".button").css("opacity","0.5");
 		$("#start").fadeOut();
@@ -18,7 +18,7 @@
 		$(this).css("opacity", "1.00");
 		var opaqueLightOpaque = setTimeout(function() {
 		
-//after a 500 millisecond delay, all buttons go back to being opaque
+			//after a 500 millisecond delay, all buttons go back to being opaque
 			$(".button").css("opacity", "0.50");
 			
 				

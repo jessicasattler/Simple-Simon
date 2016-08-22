@@ -4,10 +4,21 @@ h1{
 body{
 	font-family: 'Russo One', sans-serif;
 	font-weight: bold;
-	background-image: url("/img/pic2.jpeg");
-	background-repeat: no-repeat;
+	background-repeat: repeat;
+	background-image: url("/img/purple.png");
 }
-#container{
+.container {
+	background-image: url("/img/pic2.jpeg");
+	border: 2px solid black;
+	position: relative;
+	top: 50px;
+	margin-bottom: 50px;
+	margin: auto;
+	width: 1024px;
+	height: 768px;
+}
+
+#circle{
 	background-image: url("/img/purple.png");
 	position: absolute;
 	height: 700px;
@@ -15,8 +26,8 @@ body{
 	margin: auto;
 	border:10px solid pink;
 	border-radius: 50%;
-	top: 163px;
-	left:600px;
+	top: 40px;
+	left:140px;
 }
 .button{
 	height: 40%;
