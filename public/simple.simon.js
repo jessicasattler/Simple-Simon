@@ -13,7 +13,6 @@
 	
 	var delay = 500;
 	var blink = function(event) {
-		// console.log("clicked");
 		$(this).css("opacity", "1.00");
 		//when a button is clicked, the opacity is set to "1.00" (button lights up)
 		//"this" is the button that is clicked	
@@ -32,7 +31,7 @@
 	
 	for(var i = 0;i < buttonsArray.length; i+=1){
 
-	$("#" + buttonsArray[i]+"Button").click(blink);
+	$("#" + buttonsArray[i]+"Button").on("click",blink);
 
 
 	}
@@ -67,15 +66,18 @@
 //array that will decide on the next button that will be called into the randomButtonsArray
 //which will decide what the correct sequence of buttons to click is
  	var triggerClick =function (){
+
  		$("#score").html("Current Score: " + randomButtonsArray.length*10 + " Points");
- 		if(randomButtonsArray.length > 10){
- 			$("#score").append("<br>"+"Congratulations! You've reached a high score!");
+ 		$(".button").off("click");
+ 		if(randomButtonsArray.length == 10){
+ 			$("#score").append("<br>"+"Congratulations!");
+ 		}
+ 		if(randomButtonsArray.length == 20){
+ 			$("#score").append("<br>"+"WOW! Are you real?");
  		}
  		//scores usually increase by ten and not one in games
- 		// $(".button").off("click", blink);
  		//may turn off blink function when triggerClick is being called
 		AddRandomButton();
-		console.log(randomButtonsArray);
 
  		var count = 0;
  		var max = randomButtonsArray.length;
@@ -84,7 +86,8 @@
  		var intervalLightButton = setInterval(function(){
  			if(count >= max){
  				clearInterval(intervalLightButton);
- 				console.log("all done");
+ 				$(".button").on("click",blink);
+ 		 		$(".button").on("click",listenerCheckButton);
  			}else{
  				$('#audio1').html('<audio id="DingCOne" autoplay preload="auto"><source src=' + randomButtonsArray[count].attr("data-audio") +' type="audio/mp3"></audio>');
  				randomButtonsArray[count].css("opacity", "1.00");
@@ -97,18 +100,16 @@
  			}
  		}, interval);
 
- 		
  	}
 //when a button click is triggered, AddRandomButton is called
+//all click events are turned off until the time interval is finished so a user's click
+//is not registered until the full correct button sequence has been displayed
 //buttons will make the ding sound corresponding to their data-audio attribute 
 //the opacity is set to 1 (button lights up)
 //the next part of the function is supposed to set all the buttons back to being opaque
 	var i = 0;
-	var listenerCheckButton ;
- 	$(".button").click(function listenerCheckButton(event){
- 		console.log("test")
- 		console.log($(this).attr('id'));
- 		console.log(randomButtonsArray[0].attr("id"));
+	var listenerCheckButton = function (event){
+
  		if ($(this).attr('id')  == randomButtonsArray[i].attr("id")){
  			$('#audio1').html('<audio id="DingCOne" autoplay preload="auto"><source src=' + $(this).attr("data-audio") +' type="audio/mp3"></audio>');
  			if(i == randomButtonsArray.length-1){
@@ -117,7 +118,6 @@
  			}else{
  				i+=1;
  			}
- 			console.log($(this).attr('id'));
  		//different audio sounds were added depending on which button should be clicked
  		//when any button is clicked, a click event will trigger
  		//if the id attribute of clicked button is equal to the id attribute of
@@ -137,8 +137,10 @@
  			//then add a random button to array and make that button light up
  			//have the first button in the index of randomButtonsArray light up
  		}
- 	});
- 	console.log(randomButtonsArray.length)
+ 	};
+ 		$(".button").on("click",listenerCheckButton);
+ 		//turns on the click events when page loads
+ 	
 
 
  
