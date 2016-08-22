@@ -7,7 +7,7 @@ body{
 	background-repeat: repeat;
 	background-image: url("/img/purple.png");
 }
-.container {
+.col-md-5 {
 	background-image: url("/img/pic2.jpeg");
 	border: 2px solid black;
 	position: relative;
